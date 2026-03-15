@@ -154,4 +154,4 @@ Why are diffusion models memory-intensive?
 What ethical issues exist with generative images?
 How do you optimize diffusion for faster inference?
 What industries benefit from diffusion models?
-💡 "The best way to predict the future is to create it." — Peter Drucker
+💡 "The best way to predict the future is to create it." — Peter Drucker 
