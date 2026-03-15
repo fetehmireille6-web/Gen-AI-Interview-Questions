@@ -1,0 +1,229 @@
+1️⃣ Hello LLM Endpoint
+
+What is a language model?
+A model that predicts the next word/token in a sequence of text.
+
+How does GPT-2 differ from GPT-3/4?
+GPT-3/4 are much larger, more capable, and trained on more data than GPT-2.
+
+Why is distilgpt2 considered lightweight?
+It is a distilled (compressed) version of GPT-2 with fewer parameters and faster inference.
+
+What are tokens, and why do they matter in LLMs?
+Tokens are chunks of text (words or subwords) that models process. They determine input length and cost.
+
+How do you handle prompt length limits?
+Truncate input, summarize text, or split it into smaller chunks.
+
+Why expose models through an API instead of CLI?
+APIs allow remote access, scalability, and integration with other applications.
+
+What’s the risk of directly exposing LLMs without moderation?
+They may generate harmful, biased, or unsafe content.
+
+2️⃣ Text Summarizer API
+
+What is abstractive vs extractive summarization?
+Extractive selects sentences from the original text; abstractive generates new summarized sentences.
+
+Why is BART good for summarization?
+It is an encoder-decoder model trained for text generation tasks like summarization.
+
+What are encoder-decoder architectures?
+Encoder converts input text into representations; decoder generates the output text.
+
+How does beam search affect summary quality?
+It explores multiple possible outputs and selects the best one, improving quality.
+
+What are hallucinations in summarization?
+When the model generates information not present in the original text.
+
+What evaluation metrics exist (ROUGE, BLEU)?
+ROUGE measures overlap with reference summaries; BLEU measures similarity to reference text.
+
+How would you fine-tune BART on legal documents?
+Train it on a dataset of legal documents and their summaries.
+
+3️⃣ Sentiment Analysis API
+
+What is transfer learning in NLP?
+Using a pretrained model and adapting it to a new task.
+
+Why use DistilBERT instead of BERT?
+It is smaller, faster, and uses less memory.
+
+What dataset is SST-2?
+Stanford Sentiment Treebank dataset for binary sentiment classification.
+
+What are embeddings in classification?
+Vector representations of text that capture semantic meaning.
+
+How do you evaluate classification performance?
+Accuracy, precision, recall, and F1-score.
+
+What biases can exist in sentiment models?
+Bias from training data related to gender, culture, or language.
+
+How would you handle sarcasm in sentiment detection?
+Use larger datasets with sarcasm examples or specialized models.
+
+4️⃣ Multimodal Image Captioning
+
+How does ViT process images?
+It splits images into patches and processes them like tokens using transformers.
+
+What role does GPT-2 play in captioning?
+It generates the textual caption.
+
+Why combine a vision encoder with a language decoder?
+To convert visual information into natural language.
+
+What datasets are used for captioning?
+COCO, Flickr30k.
+
+What challenges exist in image captioning?
+Understanding context, object relationships, and ambiguity.
+
+How do you evaluate captions (BLEU, CIDEr)?
+Metrics compare generated captions with reference captions.
+
+What real-world apps use captioning?
+Accessibility tools, photo organization, and social media tagging.
+
+5️⃣ Naive RAG with Chroma
+
+What is RAG and why is it useful?
+Retrieval-Augmented Generation combines document retrieval with LLM generation to improve accuracy.
+
+How do embeddings represent meaning?
+They map text into vectors where similar meanings are closer in space.
+
+Why use Chroma as a vector DB?
+It is simple, fast, and designed for embedding storage and retrieval.
+
+What is cosine similarity in retrieval?
+A metric that measures similarity between two vectors based on their angle.
+
+How do you update a knowledge base?
+Add new documents, generate embeddings, and update the vector database.
+
+What is the risk of injecting irrelevant documents?
+The model may generate incorrect or misleading answers.
+
+How does RAG differ from fine-tuning?
+RAG retrieves external data; fine-tuning updates model weights.
+
+6️⃣ RAG with FAISS
+
+What is FAISS, and why is it fast?
+A library for efficient similarity search on large vector datasets using optimized indexing.
+
+What indexing methods does FAISS provide?
+IVF, HNSW, PQ.
+
+How does FAISS handle billions of vectors?
+By using approximate nearest neighbor indexing and optimized memory structures.
+
+Compare FAISS vs Chroma.
+FAISS is lower-level and faster; Chroma is easier to use and higher-level.
+
+What is approximate nearest neighbor (ANN) search?
+A fast method that finds close matches without checking every vector.
+
+How do you evaluate retrieval accuracy?
+Precision@k, Recall@k, and Mean Reciprocal Rank.
+
+How would you deploy FAISS in production?
+Use it with a backend service and store indexes in memory or distributed systems.
+
+7️⃣ Multimodal Q&A
+
+What is visual question answering (VQA)?
+Answering questions based on both an image and text.
+
+How does BLIP-2 align vision + text?
+It connects a vision encoder with a language model through a query transformer.
+
+What is the role of a frozen LLM in multimodal models?
+It generates text while keeping its parameters unchanged during training.
+
+What tasks benefit from multimodal inputs?
+Image captioning, medical imaging, robotics, and surveillance.
+
+What challenges exist in multimodal learning?
+Aligning different data types and large training requirements.
+
+How do you evaluate multimodal models?
+Accuracy, BLEU, CIDEr, and human evaluation.
+
+What industries need multimodal AI?
+Healthcare, autonomous vehicles, retail, and security.
+
+8️⃣ Chain Multiple Tools with LangChain
+
+What is tool chaining in AI?
+Connecting multiple AI tools sequentially to solve complex tasks.
+
+Why combine multiple AI tools?
+Each tool handles a specific task more effectively.
+
+What challenges exist when chaining APIs?
+Latency, error propagation, and data compatibility.
+
+How does orchestration differ from composition?
+Orchestration controls workflow logic; composition simply combines outputs.
+
+How to handle failures in one tool?
+Use retries, fallbacks, and error handling.
+
+What is LangChain and why is it popular?
+A framework for building applications with LLMs and external tools.
+
+How would you monitor toolchain latency?
+Use logging, tracing, and performance monitoring.
+
+9️⃣ Intelligent Chat Endpoint
+
+What is model routing?
+Selecting the best model or tool based on the user query.
+
+How do you detect intent in queries?
+Using classifiers, rules, or LLM prompts.
+
+How do you decide when to call RAG vs LLM?
+Use RAG for knowledge retrieval and LLM for general reasoning.
+
+What are risks of automatic routing?
+Wrong model selection and inconsistent responses.
+
+How do you log and trace routed calls?
+Use logging systems and request tracing tools.
+
+What metrics help evaluate a chat system?
+Response accuracy, latency, user satisfaction, and error rate.
+
+How would you scale this system for enterprise use?
+Use microservices, load balancing, caching, and distributed infrastructure.
+
+🔟 Diffusion Image Generation
+
+How do diffusion models generate images?
+They start with noise and gradually remove noise to create an image.
+
+What is denoising in diffusion?
+The iterative process of converting noise into a structured image.
+
+How does Stable Diffusion differ from DALL·E?
+Stable Diffusion is open-source and runs locally; DALL·E is proprietary.
+
+Why are diffusion models memory-intensive?
+They require large neural networks and many iterative steps.
+
+What ethical issues exist with generative images?
+Deepfakes, copyright violations, and misinformation.
+
+How do you optimize diffusion for faster inference?
+Use fewer sampling steps, GPU acceleration, and model quantization.
+
+What industries benefit from diffusion models?
+Design, gaming, marketing, film, and advertising.
